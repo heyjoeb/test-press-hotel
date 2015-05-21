@@ -1,0 +1,11 @@
+{
+  "name": "html",
+  "private": true,
+  "dependencies": {
+    "jquery": "~1.11.1",
+    "modernizr": "~2.8.2",
+    "jquery-form": "~3.46.0",
+    "jquery-validation": "~1.13.1",
+    "bxslider-4": "~4.2.3"
+  }
+}
