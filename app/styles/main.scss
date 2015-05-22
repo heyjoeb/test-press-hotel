@@ -81,6 +81,29 @@ body {
     font-style: normal;
 
 }
+
+
+// MEDIA QUERIES
+@mixin breakpoint($point) {
+    @if $point == lrg {
+        @media (max-width: 1080px) { @content; }
+    }
+    @else if $point == md {
+        @media (max-width: 720px) { @content; }
+    }
+    @else if $point == sm {
+        @media (max-width: 560px)  { @content; }
+    }
+    @else if $point == xs {
+        @media (max-width: 550px)  { @content; }
+    }
+    @else if $point == xxs {
+        @media (max-width: 400px)  { @content; }
+    }
+}
+
+
+
 // NAV
 nav {
   position: absolute;
@@ -92,6 +115,16 @@ nav {
     width: 1080px;
     margin: 45px auto;
     background: rgba(255,255,255,0.9);
+    @include breakpoint(lrg) { 
+      width: 100%;
+    }
+    @include breakpoint(md) { 
+      margin: 35px auto;
+    }
+    @include breakpoint(sm) { 
+      margin: 0 auto;
+      text-align: center
+    }
   }
   .location {
     color: #000;
@@ -100,6 +133,9 @@ nav {
     display: block;
     padding: 50px 65px;
     letter-spacing: 3px;
+    @include breakpoint(md) { 
+      padding: 10px 65px;
+    }
   }
   .main-logo {
     position: absolute;
@@ -108,6 +144,18 @@ nav {
     left: 50%;
     top: 0;
     margin-left: -101px;
+    @include breakpoint(md) { 
+      width: 100px;
+      margin-left: -50px;
+    }
+    @include breakpoint(sm) { 
+      top: 45px;
+    }
+    img {
+      @include breakpoint(md) { 
+        width: 100%;
+      }
+    }
   }
 }
 
@@ -140,6 +188,9 @@ nav {
   width: 1080px;
   margin: 0 auto;
   position: relative;
+  @include breakpoint(lrg) { 
+    width: 100%;
+  }
 }
 
 // HOME - main content
@@ -148,6 +199,10 @@ nav {
   top: -100px;
   background: #000;
   width: 100%;
+  @include breakpoint(md) { 
+    position: relative;
+    top: 0;
+  }
   .title {
     text-align: center;
   }
@@ -156,6 +211,9 @@ nav {
     width: 560px;
     height: 5px;
     margin: 0 auto;
+    @include breakpoint(sm) { 
+      width: 100%;
+    }
   }
   h1 {
     text-align: center;
@@ -184,6 +242,14 @@ nav {
   padding-right: 50px;
   font-size: 0.929em;
   line-height: 1.5em;
+  @include breakpoint(md) { 
+    float: none;
+    width: 100%;
+    margin-top: 20px;
+  }
+  @include breakpoint(sm) { 
+    margin-top: 20px;
+  }
   h3 {
     font-size: 1.786em;
     font-family: 'bodonixtregular';
@@ -200,6 +266,11 @@ nav {
   font-size: 0.786em;
   padding-bottom: 50px;
   position: relative;
+  @include breakpoint(md) { 
+    float: none;
+    width: 100%;
+    text-align: center;
+  }
   h4 {
     font-size: 1.1em;
     font-weight: normal;
@@ -237,6 +308,10 @@ nav {
     padding: 0 10px;
     font-family: 'gotham_mediumregular';
     color: #fff;
+    @include breakpoint(md) { 
+      display: block;
+      margin: 15px auto;
+    }
   }
   input[type="text"]:focus {
     border-color:#191919;
@@ -260,6 +335,9 @@ nav {
     display: block;
     text-align: left;
     padding: 0 15px;
+    @include breakpoint(md) { 
+      margin: 15px auto;
+    }
   }
   input[type="submit"]:hover {
     cursor: pointer;
@@ -345,16 +423,28 @@ footer {
   letter-spacing: 1px;
   .container {
     color: #000;
+    @include breakpoint(lrg) { 
+      width: 100%;
+    }
     .col-1 {
       margin-top: 0;
       font-size: 1em;
       line-height: 1em;
+      padding-right: 40px;
+      @include breakpoint(md) { 
+        text-align: center;
+        padding: 15px;
+      }
     }
     .col-2 {
       margin-top: 0;
       font-size: 1em;
       padding-left: 0;
       padding-bottom: 0;
+      @include breakpoint(md) { 
+        text-align: center;
+        padding: 0 15px;
+      }
     }
   }
   a {
